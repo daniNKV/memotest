@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +9,55 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+
 
 </head>
-<body>
+<body class="box-border max-w-screen-xl mx-auto bg-slate-50	">
+
+  <header class="bg-slate-200 mx-auto flex-auto">
+    <div class="flex justify-center align-center">
+      <img class="invert w-24 h-24 md:h-36 md:w-36" src="./img/Memotest.png" alt="Memotest logo">
+    </div>
+
+    <div>
+      
+    </div>
+  </header>
+  
+  <main class="mt-5">
+    <div class="container mx-auto grid grid-cols-4 grid-rows-4 w-11/12 gap-3 md:grid-cols-4 md:grid-rows-4 md:gap-5 ">
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-full "></div>
+      <div class="bg-zinc-800 w-full h-40 "></div>
+
+
+
+
+    </div>
+  </main>
+    
     
 
-    <script src="./src/js/main.js"></script>
+  <script src="./src/js/main.js"></script>
 </body>
 </html>
