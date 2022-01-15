@@ -1,0 +1,12 @@
+/*  Icon inside of card*/
+.card::after {
+    content: '\f2f1';
+    font-family: 'Font Awesome 5 Free', Lato, sans-serif;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(170, 170, 170);
+    transform: translate(50%, -50%);
+}
