@@ -10,7 +10,10 @@
 
 .card-inner.show {
     transform: rotateY(180deg)
+}
 
+.card-inner.show {
+    box-shadow: none;
 }
 
 .card-front, 
