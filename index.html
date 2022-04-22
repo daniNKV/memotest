@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memotest</title>
-    
-    <link rel="stylesheet" href="./src/css/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/9a33d64d1e.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-              },
-              boxShadow: {
-                '3xl': '-8px 8px 0 rgb(0,0,0)'
-              },
-              fontFamily: {
-                'sans' : 'Bebas Neue, cursive'
-              }
-            }
-          }
-        }
-      </script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Memotest</title>
+
+	<link rel="stylesheet" href="./src/css/style.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://kit.fontawesome.com/9a33d64d1e.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<script>
+		tailwind.config = {
+			theme: {
+			extend: {
+				colors: {
+				clifford: '#da373d',
+				},
+				boxShadow: {
+				'3xl': '-8px 8px 0 rgb(0,0,0)'
+				},
+				fontFamily: {
+				'sans' : 'Bebas Neue, cursive'
+				}
+			}
+			}
+		}
+		</script>
 
 
 </head>
-<body class="box-border max-w-screen-xl mx-auto bg-slate-100 overflow-hidden		">
+<body class="box-border max-w-screen-xl mx-auto bg-orange-50 overflow-hidden		">
 
-  <header class=" mx-auto flex justify-around items-center">
-    <div>
-      <img class="invert w-24 h-24 md:h-40 md:w-40" src="./img/Memotest.png" alt="Memotest logo">
-    </div>
-    
-    <strong class="rounded-xl	hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in bg-slate-50 p-5 font-sans text-2xl sm:text-4xl	">Moves: <span>2</span></strong>
+	<header class=" mx-auto flex justify-around items-center">
+		<div>
+			<img class="invert w-24 h-24 md:h-40 md:w-40" src="./img/Memotest.png" alt="Memotest logo">
+		</div>
 
-
-  </header>
-  
-  <main class="mt-5">
-    <div class="container h-screen mx-auto grid grid-cols-4 grid-rows-4 w-11/12 gap-3 md:gap-5 ">
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
-      <div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+		<strong class="rounded-xl	hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in bg-slate-50 p-5 font-sans text-2xl sm:text-4xl	">Moves: <span>2</span></strong>
 
 
+	</header>
+
+	<main class="mt-5">
+		<div class="container h-screen mx-auto grid grid-cols-4 grid-rows-4 w-11/12 gap-3 md:gap-5 " id="table">
+			
+			<div id="card-1" class="card cursor-pointer">
+				<div class="card-inner relative w-full h-full border border-black">
+					<div class="card-front bg-slate-50 absolute w-full h-full"></div>
+					<div class="card-back bg-pink-200 absolute w-full h-full "></div>
+				</div>
+			</div>
+
+			<div class="card border border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer">
+				<div class="face front bg-slate-50 w-full h-full"></div>
+				<div class="face back w-full h-full z-"></div>
+
+			</div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-stone-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
+			<div class="card border bg-slate-50 border-black w-full h-full hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in relative cursor-pointer"></div>
 
 
-    </div>
-  </main>
-    
-    
 
-  <script src="./src/js/main.js"></script>
+
+		</div>
+	</main>
+
+
+
+	<script src="./src/js/main.js"></script>
 </body>
 </html>
