@@ -31,7 +31,7 @@
 
 /*  Icon inside of card*/
 .card-front::after {
-    content: '\f06e'; 
+    content: '\f0c7'; 
     font-family: 'Font Awesome 5 Free', Lato, sans-serif;
     position: absolute;
     top: 50%;
