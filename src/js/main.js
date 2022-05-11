@@ -25,14 +25,17 @@ document.addEventListener('DOMContentLoaded', () => initGame())
 function initGame() {
     placeCards(config.cardsAmount)
 
-    initRound(shuffle(createColors(config)))
+    initRound(shuffle(createColors(config)), colorsAvailable = config.cardsAmount / 2)
 }
 
 function initRound(solution){
-    colorsLeft = solution.length / 2
+    let cardsLeft = solution.filter(color => color !== 'founded').length
 
-    if (colorsLeft > 0) {
+    if (cardsLeft > 0) {
         enableInput(getInput, solution)
+    }
+    else {
+        alert('You win!')
     }
 
 }
@@ -55,10 +58,11 @@ function captureInput(firstClick, solution){
 
 
 function compareClicks(first, second, solution) {
+
     if (solution[first] === solution[second]) {
-        console.log('true')
-
-
+        const newSolution = solution.map(color => color === solution[first] ? color = 'founded' : color )
+        blockPair(first, second)
+        initRound(newSolution)
     }
     else  {
         hidePair(first, second)
