@@ -2,8 +2,8 @@
 const DOM = {
     cardTemplate : document.getElementById('card'),
     table : document.getElementById('table'),
+    cards : "document.querySelectorAll('card')"
 }   
-
 
 const config = {
     colors : {
@@ -25,78 +25,69 @@ document.addEventListener('DOMContentLoaded', () => initGame())
 function initGame() {
     placeCards(config.cardsAmount)
 
-    initRound(shuffle(createColors(config)), n = config.cardsAmount)
-    
-
-    // elements.forEach(card => card.addEventListener('click', e => verifyPair(e, solution, elements)))
-    // DOM.table.addEventListener('click', e => e.target != DOM.table ? console.log(e.target.parentNode.id) : '')
+    initRound(shuffle(createColors(config)))
 }
+
+function initRound(solution){
+    colorsLeft = solution.length / 2
+
+    if (colorsLeft > 0) {
+        enableInput(getInput, solution)
+    }
+
+}
+
 function getInput(solution) {
     return e => {
-        paintCard(solution[e.target.id], e.target)
+        revealCard(solution[e.target.id], e.target)
         captureInput(e.target.id, solution)} 
 }
 
-function paintCard(color, card){
-    card.nextElementSibling.classList.toggle(config.colors[color])
-}
 
 function captureInput(firstClick, solution){
     const getNextInput = (solution) => (e) => {
-        paintCard(solution[e.target.id], e.target)
+        revealCard(solution[e.target.id], e.target)
         compareClicks(firstClick, e.target.id, solution)
     }
     
     enableInput(getNextInput, solution)
-
-    console.log('f', firstClick)
 }
+
 
 function compareClicks(first, second, solution) {
     if (solution[first] === solution[second]) {
         console.log('true')
+
+
     }
-    else 
-        console.log('false')
+    else  {
+        hidePair(first, second)
+        initRound(solution)
+        }
 }
-
-function initRound(solution, colorsLeft){
-    if (colorsLeft > 0) {
-        enableInput(getInput, solution)
-    }
-    // const compareClicks = (secondClick) => {
-
-    // }
-
-}
-
-
-// const var1 = comparar(2)
-// const var2 = var1(4)
-
-// console.log(var2)
 
 function enableInput(fn, data) {
-    // elements.forEach(card => card.addEventListener('click', e => fn(e)))
-   // DOM.table.addEventListener('click', e => e.target !== DOM.table ? fn(e) : '')
-   DOM.table.onclick = fn(data)
+    document.querySelectorAll('.card-front').forEach(card => {
+        card.classList.contains('win') ? '' : card.onclick = fn(data)
+    })
 }
 
-function disableInput(fn) {
-    // elements.forEach(card => card.removeEventListener('click', fn))
-   // DOM.table.removeEventListener('click', fn)
-    DOM.table.onclick = fn
+// function disableInput(fn) {
+//     // elements.forEach(card => card.removeEventListener('click', fn))
+//    // DOM.table.removeEventListener('click', fn)
+//     DOM.table.onclick = fn
 
-}
+// }
 
-function shuffle(arrayToShuffle, n) {
+function shuffle(arrayToShuffle) {
     let array = arrayToShuffle
-
+    let n = array.length;
     for (let i = n - 1; i > 0; i--){
         let j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-    return array 
+
+    return array
 }
 
 
@@ -123,11 +114,24 @@ function createCard(template, id) {
     let $card = template.content.firstElementChild.cloneNode(true)
 
     $card.children[0].children[0].id = `${ id }`
-    $card.onclick = (e) => e.target.parentNode.classList.toggle('show')
 
     return $card
 }
 
+function revealCard(color, card){
+    card.parentNode.classList.toggle('show')
+    card.nextElementSibling.classList.add(config.colors[color])
+}
 
+function hidePair(card1, card2) {
+    setTimeout(() => {
+        document.getElementById(`${card1}`).parentNode.classList.toggle('show')
+        document.getElementById(`${card2}`).parentNode.classList.toggle('show')
+    }, 1000)    
 
+}
 
+function blockPair(card1, card2) {
+    document.getElementById(`${card1}`).parentNode.classList.add('win')
+    document.getElementById(`${card2}`).parentNode.classList.add('win')
+}
