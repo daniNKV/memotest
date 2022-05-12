@@ -1,7 +1,8 @@
 
 const DOM = {
-    cardTemplate : document.getElementById('card'),
-    table : document.getElementById('table')
+    $cardTemplate : document.getElementById('card'),
+    $table : document.getElementById('table'),
+    $movesCounter : document.getElementById('attempts-counter')
 }   
 
 const config = {
@@ -27,11 +28,19 @@ function initGame() {
     initRound(shuffle(createColors(config)), colorsAvailable = config.cardsAmount / 2)
 }
 
+function updateCounter() {
+    const getCount = Number(DOM.$movesCounter.textContent) + 1
+    DOM.$movesCounter.textContent = getCount.toString()
+
+
+}
+
+
 function initRound(solution){
     let cardsLeft = solution.filter(color => color !== 'founded').length
 
     if (cardsLeft > 0) {
-        enableInput(getInput, solution)
+        enableInput(getFirstInput, solution)
     }
     else {
         alert('You win!')
@@ -39,7 +48,7 @@ function initRound(solution){
 
 }
 
-function getInput(solution) {
+function getFirstInput(solution) {
     return e => {
         revealCard(solution[e.target.id], e.target)
         captureInput(e.target.id, solution)} 
@@ -56,7 +65,9 @@ function captureInput(firstClick, solution){
 }
 
 
+
 function compareClicks(first, second, solution) {
+    updateCounter()
 
     if (solution[first] === solution[second]) {
         const newSolution = solution.map(color => color === solution[first] ? color = 'founded' : color )
@@ -70,8 +81,8 @@ function compareClicks(first, second, solution) {
 }
 
 function enableInput(fn, data) {
-    document.querySelectorAll('.card-front').forEach(card => {
-        card.classList.contains('win') ? '' : card.onclick = fn(data)
+    document.querySelectorAll('.card-front').forEach($card => {
+        $card.classList.contains('win') ? '' : $card.onclick = fn(data)
     })
 }
 
@@ -98,9 +109,9 @@ function createColorList(colorsObj, amount) {
     return Object.keys(colorsObj).slice(0, amount).concat(Object.keys(colorsObj))
 }
 
-function placeCards(amount, parent = DOM.table) {
+function placeCards(amount, parent = DOM.$table) {
     for(let i = 0 ; i < amount ; i++) {
-        parent.appendChild(createCard(DOM.cardTemplate, i))
+        parent.appendChild(createCard(DOM.$cardTemplate, i))
     }
 
     return Array.from(document.querySelectorAll('.card-inner'))
