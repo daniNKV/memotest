@@ -25,35 +25,31 @@ document.addEventListener('DOMContentLoaded', () => initGame())
 function initGame() {
     placeCards(config.cardsAmount)
 
-    initRound(shuffle(createColors(config)), colorsAvailable = config.cardsAmount / 2)
+    initRound(shuffle(createColors(config)))
 }
-
-function updateCounter() {
-    const getCount = Number(DOM.$movesCounter.textContent) + 1
-    DOM.$movesCounter.textContent = getCount.toString()
-
-
-}
-
 
 function initRound(solution){
     let cardsLeft = solution.filter(color => color !== 'founded').length
 
     if (cardsLeft > 0) {
-        enableInput(getFirstInput, solution)
+        enableInput(getInput, solution)
     }
     else {
-        alert('You win!')
+        endGame()
     }
 
 }
+function endGame() {
+    setTimeout(() => {
+        alert('You won!')
+    }, 300);
+}
 
-function getFirstInput(solution) {
+function getInput(solution) {
     return e => {
         revealCard(solution[e.target.id], e.target)
         captureInput(e.target.id, solution)} 
 }
-
 
 function captureInput(firstClick, solution){
     const getNextInput = (solution) => (e) => {
@@ -70,9 +66,8 @@ function compareClicks(first, second, solution) {
     updateCounter()
 
     if (solution[first] === solution[second]) {
-        const newSolution = solution.map(color => color === solution[first] ? color = 'founded' : color )
         blockPair(first, second)
-        initRound(newSolution)
+        initRound(getNewSolution(solution))
     }
     else  {
         hidePair(first, second)
@@ -80,10 +75,21 @@ function compareClicks(first, second, solution) {
     }
 }
 
+function getNewSolution(round){
+    return round.map(color => color === solution[first] ? color = 'founded' : color )
+}
+
 function enableInput(fn, data) {
     document.querySelectorAll('.card-front').forEach($card => {
         $card.classList.contains('win') ? '' : $card.onclick = fn(data)
     })
+}
+
+
+function updateCounter() {
+    const getNewCount = Number(DOM.$movesCounter.textContent) + 1
+    DOM.$movesCounter.textContent = getNewCount.toString()
+
 }
 
 function shuffle(arrayToShuffle) {
@@ -143,3 +149,17 @@ function blockPair(card1, card2) {
     document.getElementById(`${card2}`).parentNode.classList.add('win')
 }
 
+// function getInput(solution) {
+//     return e => processInput(e, solution, getNextInput(e.target.id, solution))
+
+// }
+// function getNextInput(firstClick, solution){
+//     const getNextInput = (solution) => (e) => processInput(e, solution, compareClicks(firstClick, e.target.id, solution))
+
+//     enableInput(getNextInput, solution)
+// }
+// function processInput(click, solution, fn){
+//     revealCard(solution[click.target.id], click.target)
+
+//     return fn
+// }
