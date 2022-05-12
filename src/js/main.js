@@ -8,10 +8,10 @@ const DOM = {
 const config = {
     colors : {
         'red' : 'bg-red-600',
-        'yellow' : 'bg-yellow-600' ,
+        'pink' : 'bg-pink-300' ,
         'green' : 'bg-green-600',
         'blue' : 'bg-blue-600' ,
-        'orange' : 'bg-orange-600', 
+        'orange' : 'bg-orange-300', 
         'purple' : 'bg-purple-600'
     },
 
@@ -48,16 +48,16 @@ function endGame() {
 function getInput(solution) {
     return e => {
         revealCard(solution[e.target.id], e.target)
-        captureInput(e.target.id, solution)} 
+        captureFirst(e.target.id, solution)} 
 }
 
-function captureInput(firstClick, solution){
-    const getNextInput = (solution) => (e) => {
+function captureFirst(firstClick, solution){
+    const handleInputs = (solution) => (e) => {
         revealCard(solution[e.target.id], e.target)
         compareClicks(firstClick, e.target.id, solution)
     }
     
-    enableInput(getNextInput, solution)
+    enableInput(handleInputs, solution)
 }
 
 
@@ -67,16 +67,18 @@ function compareClicks(first, second, solution) {
 
     if (solution[first] === solution[second]) {
         blockPair(first, second)
-        initRound(getNewSolution(solution))
+        initRound(updateSolution(solution, first))
     }
     else  {
         hidePair(first, second)
         initRound(solution)
     }
+
+
 }
 
-function getNewSolution(round){
-    return round.map(color => color === solution[first] ? color = 'founded' : color )
+function updateSolution(round, actual){
+    return round.map(color => color === round[actual] ? color = 'founded' : color )
 }
 
 function enableInput(fn, data) {
