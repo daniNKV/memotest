@@ -1,8 +1,7 @@
 
 const DOM = {
     cardTemplate : document.getElementById('card'),
-    table : document.getElementById('table'),
-    cards : "document.querySelectorAll('card')"
+    table : document.getElementById('table')
 }   
 
 const config = {
@@ -67,7 +66,7 @@ function compareClicks(first, second, solution) {
     else  {
         hidePair(first, second)
         initRound(solution)
-        }
+    }
 }
 
 function enableInput(fn, data) {
@@ -75,13 +74,6 @@ function enableInput(fn, data) {
         card.classList.contains('win') ? '' : card.onclick = fn(data)
     })
 }
-
-// function disableInput(fn) {
-//     // elements.forEach(card => card.removeEventListener('click', fn))
-//    // DOM.table.removeEventListener('click', fn)
-//     DOM.table.onclick = fn
-
-// }
 
 function shuffle(arrayToShuffle) {
     let array = arrayToShuffle
@@ -139,3 +131,4 @@ function blockPair(card1, card2) {
     document.getElementById(`${card1}`).parentNode.classList.add('win')
     document.getElementById(`${card2}`).parentNode.classList.add('win')
 }
+
