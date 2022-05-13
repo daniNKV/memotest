@@ -2,7 +2,10 @@
 const DOM = {
     $cardTemplate : document.getElementById('card'),
     $table : document.getElementById('table'),
-    $movesCounter : document.getElementById('attempts-counter')
+    $movesCounter : document.getElementById('attempts-counter'),
+    $modal : document.getElementById('modal'),
+    $movesDisplay : document.getElementById('moves-made'),
+    $restartBtn : document.getElementById('restart')
 }   
 
 const config = {
@@ -41,8 +44,22 @@ function initRound(solution){
 }
 function endGame() {
     setTimeout(() => {
-        alert('You won!')
+        DOM.$modal.classList.toggle('hidden')
+        DOM.$movesDisplay.textContent= document.getElementById('attempts-counter').textContent + ' '
+        DOM.$restartBtn.onclick = restartGame
     }, 300);
+}
+
+function restartGame() {
+    DOM.$movesCounter.textContent = '0'
+    DOM.$modal.classList.toggle('hidden')
+    deleteCards(DOM.$table)
+    initGame()
+}
+function deleteCards(parent){
+    while(parent.firstChild) {
+        parent.removeChild(parent.firstChild)
+    }
 }
 
 function getInput(solution) {
