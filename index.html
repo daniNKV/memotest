@@ -32,17 +32,23 @@
 
 
 </head>
-<body class="box-border max-w-screen-xl mx-auto bg-orange-50 overflow-hidden		">
 
-	<header class=" mx-auto flex justify-around items-center">
-		<div>
-			<img class="invert w-24 h-24 md:h-40 md:w-40" src="./img/Memotest.png" alt="Memotest logo">
-		</div>
+<header class=" mx-auto flex justify-around items-center">
+	<div>
+		<img class="invert w-24 h-24 md:h-40 md:w-40" src="./img/Memotest.png" alt="Memotest logo">
+	</div>
 
-		<strong class="rounded-xl	hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in bg-slate-50 p-5 font-sans text-2xl sm:text-4xl	">Moves: <span>2</span></strong>
+	<div class="rounded-xl hover:shadow-3xl hover:translate-x-2 hover:-translate-y-2 duration-200 ease-in bg-slate-50 p-5 font-sans text-2xl sm:text-4xl	">
+		<strong>
+			Moves: <span id="attempts-counter">0</span>
+		</strong>
+	</div>
 
 
-	</header>
+</header>
+
+
+<body class="box-border max-w-screen-xl mx-auto bg-orange-50 overflow-hidden">
 
 	<main class="mt-5">
 		<div class="container h-screen mx-auto grid grid-cols-4 grid-rows-4 w-11/12 gap-3 md:gap-5 " id="table">
@@ -59,6 +65,21 @@
 		</div>
 	</main>
 
+	<div id="modal" class="hidden flex flex-none items-center justify-center fixed left-0 top-0 overflow-y-auto overflow-x-hidden z-10 h-screen w-screen backdrop-blur-md ">
+		<div class="grid grid-cols grid-rows-3 z-20 place-items-center h-3/5 w-3/5 bg-blue-400 backdrop-blur-none drop-shadow-lg">
+			<div class="place-self-center text-center mt-10 h-3/4 w-3/4">
+				<h2 class="font-sans text-2xl sm:text-4xl bg-slate-50 p-4">
+					You've won in only <span id="moves-made"> </span>moves!
+				</h2>
+			</div>
+			<div class="row-start-3	mb-10">
+				<button id="restart" class="min-w-fit rounded-xl hover:shadow-3xl hover:translate-x-4 hover:-translate-y-2 duration-200 ease-in bg-slate-50 p-5 font-sans text-2xl sm:text-4xl">
+					Play Again
+				</button>
+			</div>
+		</div>
+
+	</div>
 
 
 	<script src="./src/js/main.js"></script>
