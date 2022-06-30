@@ -42,25 +42,6 @@ function initRound(solution){
     }
 
 }
-function endGame() {
-    setTimeout(() => {
-        DOM.$modal.classList.toggle('hidden')
-        DOM.$movesDisplay.textContent= document.getElementById('attempts-counter').textContent + ' '
-        DOM.$restartBtn.onclick = restartGame
-    }, 300);
-}
-
-function restartGame() {
-    DOM.$movesCounter.textContent = '0'
-    DOM.$modal.classList.toggle('hidden')
-    deleteCards(DOM.$table)
-    initGame()
-}
-function deleteCards(parent){
-    while(parent.firstChild) {
-        parent.removeChild(parent.firstChild)
-    }
-}
 
 function getInput(solution) {
     return e => {
@@ -104,6 +85,25 @@ function enableInput(fn, data) {
     })
 }
 
+function endGame() {
+    setTimeout(() => {
+        DOM.$modal.classList.toggle('hidden')
+        DOM.$movesDisplay.textContent= document.getElementById('attempts-counter').textContent + ' '
+        DOM.$restartBtn.onclick = restartGame
+    }, 300);
+}
+
+function restartGame() {
+    DOM.$movesCounter.textContent = '0'
+    DOM.$modal.classList.toggle('hidden')
+    deleteCards(DOM.$table)
+    initGame()
+}
+function deleteCards(parent){
+    while(parent.firstChild) {
+        parent.removeChild(parent.firstChild)
+    }
+}
 
 function updateCounter() {
     const getNewCount = Number(DOM.$movesCounter.textContent) + 1
