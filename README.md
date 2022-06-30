@@ -2,7 +2,7 @@
 Classic memory game. r/Argentina Programa course.
 www.argentinaprograma.com
 
-Construído con Vainilla HTML, CSS & JS.
+Construído con Vainilla HTML y JS. CSS con Tailwind.
 Testeado con Cypress
 
 Link al juego: <a href="https://daninkv.github.io/memotest/">Click aquí</a>
