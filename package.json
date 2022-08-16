@@ -1,0 +1,23 @@
+{
+  "name": "memotest",
+  "version": "1.0.0",
+  "description": "game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniNKV/memotest.git"
+  },
+  "author": "daniNKV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniNKV/memotest/issues"
+  },
+  "homepage": "https://github.com/daniNKV/memotest#readme",
+  "devDependencies": {
+    "cypress": "^10.5.0",
+    "eslint": "^8.22.0"
+  }
+}
