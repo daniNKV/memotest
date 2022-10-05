@@ -17,9 +17,9 @@ const config = {
         'orange' : 'bg-orange-300', 
         'purple' : 'bg-purple-600'
     },
-
+    test: true,
+    solution: ["red", "pink", "red", "purple", "orange", "pink", "orange", "blue", "green", "purple", "green", "blue"],
     cardsAmount : 12,
- 
 }
 
 document.addEventListener('DOMContentLoaded', () => initGame())
@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => initGame())
 
 function initGame() {
     placeCards(config.cardsAmount)
-
-    initRound(shuffle(createColors(config)))
+    initRound(config.test ? config.solution : shuffle(createColors(config)))
 }
 
 function initRound(solution){
