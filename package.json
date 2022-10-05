@@ -4,7 +4,7 @@
   "description": "game",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/daniNKV/memotest#readme",
   "devDependencies": {
-    "cypress": "^10.5.0",
-    "eslint": "^8.22.0"
+    "cypress": "^10.9.0",
+    "eslint": "^8.22.0",
+    "http-server": "^14.1.1"
   }
 }
